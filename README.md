@@ -1,9 +1,9 @@
 # CovidSP
 
-## Definindo os parâmetros de simulação
+## 1. Definindo os parâmetros de simulação
 
 ### Número de pessoas envolvidas
-
+n
 ### Distribuição geográfica de zonas da cidade
 
 #### Famílias
