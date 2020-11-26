@@ -23,42 +23,48 @@ Valor absoluto do IBGE
 #### Número médio de empresas em cada zona
 Aproximado por meio de uma regra de três entre o número total de empresas e empregados e o número de empregados em cada zona
 
+### 1.3 Amizades
+
+#### Média de amigos por pessoa (além da família)
+8
+
+#### As amizades com mais contato constumam localizar-se geograficamente próximas
+#### Vamos considerar a proximidade da residência apenas
+
 ## 2. Criando as redes
 
 ### 2.1 Criando a rede de famílias
 
-#### A rede de famílias é basicamente uma rede GN, com Zext = 0, < Zin > = Média de pessoas por família
+#### Posicionamento das famílias
+Tendo o número de famílias esperado para cada zona, elas são alocadas com coordenadas geográficas aleatórias dentro de cada zona.
 
-#### Para cada família criada naquela zona, gera um par de coordenadas aleatórias para aquela zona
-
+#### Rede familiar
+Dentro da família, o modelo considerado é de todos os nós diretamente conectados.
 
 ### 2.2 Criando a rede de empregos
 
-### Tinhamos falado de Lattice
+#### Posicionamento das empresas
+Dado o número estimado de empresas por zona, elas são alocadas com coordenadas geográficas aleatórias dentro de cada zona.
 
-#### Podemos criar um Lattice grande de todos os empregados da zona, e considerar o local de emprego
-#### é no centro dela. Não acho pouco razoável não. Mas daí tem que ver a medida de dsitância.
+#### Rede de contato dentro da empresa
+Considerando que o contato mais próximo entre os funcionários se dá geralmente no mesmo nível hierárquico, 
+pode-se considerar o uso de um lattice para o modelo desta rede de contatos.
 
-### Podemos usar BA
+### 2.3 Correlacionando emprego e pessoa
 
-#### Outra coisa que se pode fazer é criar uma rede BA, com gamma = 2.5 -> o Verri falou em aula
-#### que as redes BA, com 2 < gamma < 3 geralmente são as que melhor descrevem as redes sociais reais.
-#### E daí, distribuir os hubs aleatoriamente no espaço de cada zona
-#### Os hubs poderiam ser definidos como nós com grau maior que a média.
+#### Cabe aqui considerar dois efeitos: a população em geral costuma trabalhar mais ao centro, onde há mais empregos; ao mesmo tempo, as pessoas tendem a morar perto de onde trabalham, se possível. Por exemplo, pessoas que morem em bairros com muitos cargos de trabalho, e muito caros, portanto, dificilmente trabalham na periferia. Ao mesmo tempo, que os moradores das periferias, são trazidos para o centro pela falta de cargos de trabalho mais próximos a eles.
 
-## Correlacionando emprego e família
+#### De forma a manter o efeito da localidade, sem perder a atração de mão-de-obra da periferia para o centro, a correlação pessoa-emprego é feita da seguinte forma:
+#### - Considera-se os nós correspondentes as pessoas numa ordem aleatória;
+#### - Seguindo essa ordem cada pessoa conecta-se ao emprego mais próximo de sua residência que esteja disponível;
+#### - Por simplicidade, considera-se que todos trabalham.
 
-### Efeito de Localidade considerado
-
-#### Dada uma vaga de emprego, ela vai estar relacionada com uma pessoa com probabilidade inversamente
-#### proporcional a distância do emprego a casa da pessoa. 
-#### Acho que daria pra pegar uma pessoa de forma aleatória e conectá-la ao emprego mais próximo e 
-#### disponível, ou contrário. Isso daria o mesmo efeito de localidade, diminuindo o custo de gerar
-#### vários números aleatórios - um pra cada emprego - até que dê um maior que 1/d
-
-## Criando a rede de amizades
+## 2.4 Criando a rede de amizades
 
 ### Efeito de localidade, análogo ao emprego <-> família - mas cada um é "empregador" 
 
 #### Rede WS baseada num lattice que inicialmente fica conectado
+
+
+## 3. Evolução dos casos
 
