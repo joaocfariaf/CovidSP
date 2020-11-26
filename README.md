@@ -3,32 +3,36 @@
 ## 1. Definindo os parâmetros de simulação
 
 ### Número de pessoas envolvidas
-n
+n <- parametrizado pelo número de nós presentes de forma a se obter uma simulação factível
 ### Distribuição geográfica de zonas da cidade
+Zonas num modelo simplificado do mapa da cidade
 
-#### Famílias
+### 1.1 Famílias
 
 #### Proporção populacional em cada zona
-
+Valor absoluto do IBGE
 #### Média de pessoas por família na zona
+Valor absoluto do IBGE
+#### Número estimado de famílias em cada zona
+Calculado pela razão dos dois nros anteriores
 
-#### Número estimado de famílias em cada zona, calculado pela razão dos dois nros
-
-### Trabalho
+### 1.2 Trabalho
 
 #### Proporção de empregados em cada zona
+Valor absoluto do IBGE
+#### Número médio de empresas em cada zona
+Aproximado por meio de uma regra de três entre o número total de empresas e empregados e o número de empregados em cada zona
 
-#### Proporção de empregadores por zona (?)
+## 2. Criando as redes
+
+### 2.1 Criando a rede de famílias
+
+#### A rede de famílias é basicamente uma rede GN, com Zext = 0, < Zin > = Média de pessoas por família
+
+#### Para cada família criada naquela zona, gera um par de coordenadas aleatórias para aquela zona
 
 
-## Criando a rede de famílias
-
-### A rede de famílias é basicamente uma rede GN, com Zext = 0, < Zin > = Média de pessoas por família
-
-### Para cada família criada naquela zona, gera um par de coordenadas aleatórias para aquela zona
-
-
-## Criando a rede de empregos
+### 2.2 Criando a rede de empregos
 
 ### Tinhamos falado de Lattice
 
