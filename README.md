@@ -52,19 +52,49 @@ pode-se considerar o uso de um lattice para o modelo desta rede de contatos.
 
 ### 2.3 Correlacionando emprego e pessoa
 
-#### Cabe aqui considerar dois efeitos: a população em geral costuma trabalhar mais ao centro, onde há mais empregos; ao mesmo tempo, as pessoas tendem a morar perto de onde trabalham, se possível. Por exemplo, pessoas que morem em bairros com muitos cargos de trabalho, e muito caros, portanto, dificilmente trabalham na periferia. Ao mesmo tempo, que os moradores das periferias, são trazidos para o centro pela falta de cargos de trabalho mais próximos a eles.
+Cabe aqui considerar dois efeitos: a população em geral costuma trabalhar mais ao centro, onde há mais empregos; ao mesmo tempo, as pessoas tendem a morar perto de onde trabalham, se possível. Por exemplo, pessoas que morem em bairros com muitos cargos de trabalho, e muito caros, portanto, dificilmente trabalham na periferia. Ao mesmo tempo, que os moradores das periferias, são trazidos para o centro pela falta de cargos de trabalho mais próximos a eles.
 
-#### De forma a manter o efeito da localidade, sem perder a atração de mão-de-obra da periferia para o centro, a correlação pessoa-emprego é feita da seguinte forma:
-#### - Considera-se os nós correspondentes as pessoas numa ordem aleatória;
-#### - Seguindo essa ordem cada pessoa conecta-se ao emprego mais próximo de sua residência que esteja disponível;
-#### - Por simplicidade, considera-se que todos trabalham.
+De forma a manter o efeito da localidade, sem perder a atração de mão-de-obra da periferia para o centro, a correlação pessoa-emprego é feita da seguinte forma:
+ - Considera-se os nós correspondentes as pessoas numa ordem aleatória;
+ - Seguindo essa ordem cada pessoa conecta-se ao emprego mais próximo de sua residência que esteja disponível;
+ - Por simplicidade, considera-se que todos trabalham.
 
-## 2.4 Criando a rede de amizades
+### 2.4 Criando a rede de amizades
 
-### Efeito de localidade, análogo ao emprego <-> família - mas cada um é "empregador" 
+#### Efeito de localidade, análogo ao emprego <-> família - mas cada um é "empregador" 
 
-#### Rede WS baseada num lattice que inicialmente fica conectado
+##### Rede WS baseada num lattice que inicialmente fica conectado
 
 
 ## 3. Evolução dos casos
+
+### Família
+- A probabilidade de transmissão entre membros da família é 16,3%
+
+### Trabalho
+- A probabilidade de transmissão entre pessoas do mesmo trabalho (de máscara) é 2,5%
+
+### Amizades
+- A probabilidade de transmissão entre amigos foi estimado como 2,1%
+
+### Letalidade
+- A letalidade é de aproximadamente 4% no Brasil (ourworldindata.org)
+
+### 3.1 Estados de infecção dos agentes
+
+#### - Suscestível
+#### - Infectado
+#### - Recuperado/Imune
+#### - Morto
+
+### 3.2 Estados de isolamento dos agentes
+
+#### - Livre
+Redes de contato plenas.
+#### - Quarentenado
+Rede de amizades desativada
+#### - Lockdown
+Redes de amizade e trabalho destivadas
+
+
 
