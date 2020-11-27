@@ -1,0 +1,11 @@
+## Apple
+.DS_STORE
+
+## IDE
+.vscode/
+
+## Python
+__pycache__/
+
+## Graph
+*.graphml
