@@ -34,7 +34,6 @@ class Family(LocatedEntity):
 class Company(LocatedEntity):
     def __init__(self, _id: int) -> None:
         super().__init__(_id)
-        self.zone = UNDEFINED
 
 
 def __init_graph_from_families(num_families: int, max_family_size: int, distr='binomial') -> Tuple[ig.Graph, List[Person], List[Family]]:
@@ -66,13 +65,18 @@ def __init_graph_from_families(num_families: int, max_family_size: int, distr='b
     ##
     for family in families:
         network.add_vertices(family.member_ids)
-        network.add_edges(itertools.combinations(family.member_ids, 2))
+        network.add_edges(itertools.combinations(family.member_ids, 2)) ## Fully-Connected!
     return network, persons, families
 
 def __init_companies(num_companies: int) -> List[Company]:
     return [Company(i) for i in range(num_companies)]
 
 def __zone(entities: List[LocatedEntity], zone_distr: List[float]) -> List[int]:
+    """
+        Distribute the entities in the list between the specified zones with the specified probabilities.
+        Every entity is also marked with its zone during the process.
+        Return a list with the number of entities per zone.
+    """
     num_entities = len(entities)
     num_zones = len(zone_distr)
     if num_entities <= 0:
@@ -92,7 +96,7 @@ def __zone(entities: List[LocatedEntity], zone_distr: List[float]) -> List[int]:
             if zone == len(sample):
                 raise RuntimeError('Number of entities sampled not equal to total number of entities (????)')
         # Position entity at its zone
-        entity.zone = zone
+        entity.zone = zone ## !! Save the zone information at the entity
         entity_count += 1
     return sample
 
@@ -108,6 +112,8 @@ def generate(args: dict) -> ig.Graph:
     companies = __init_companies(num_companies)
     companies_per_zone = __zone(companies, JOB_ZONE_PROBABILITY)
     print(f"companies_per_zone={companies_per_zone}")
-    # __employ_people(network, )
+    # __place(families)
+    # __place(companies)
+    # __employ_people(network, persons, companies)
     # print(network)
     return network

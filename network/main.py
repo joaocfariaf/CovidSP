@@ -15,10 +15,6 @@ def cli_parser() -> ArgumentParser:
         type=int,
         help='The number of families in the model'
     )
-    # parser.add_argument(
-    #     '-nc', '--num_companies'
-    #     default=int
-    # )
     parser.add_argument(
         '-o', '--output',
         type=Path,
